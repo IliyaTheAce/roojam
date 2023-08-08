@@ -39,14 +39,14 @@ const Navbar = () => {
               "font-yekan font-normal cursor-pointer text-[18px] text-white hover:text-secondary transition-all ml-10"
             }
           >
-            <Link href={"/ContactUs"}>ارتباط با ما</Link>
+            <Link href={"/contact"}>ارتباط با ما</Link>
           </li>
           <li
             className={
               "font-yekan font-normal cursor-pointer text-[18px] text-white hover:text-secondary transition-all ml-0"
             }
           >
-            <Link href={"/AboutUs"}>درباره ما</Link>
+            <Link href={"/about"}>درباره ما</Link>
           </li>
         </ul>
         <a href={"./"}>
@@ -101,14 +101,14 @@ const Navbar = () => {
                   "font-yekan font-normal cursor-pointer text-[16px]  text-white hover:text-secondary mb-4"
                 }
               >
-                <Link href={"/ContactUs"}>ارتباط با ما</Link>
+                <Link href={"/contact"}>ارتباط با ما</Link>
               </li>
               <li
                 className={
                   "font-yekan font-normal cursor-pointer text-[16px]  text-white hover:text-secondary mb-0"
                 }
               >
-                <Link href={"/AboutUs"}>درباره ما</Link>
+                <Link href={"/about"}>درباره ما</Link>
               </li>
             </ul>
           </div>
