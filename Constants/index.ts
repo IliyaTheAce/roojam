@@ -112,3 +112,27 @@ export const stats = [
     value: "$230M+",
   },
 ];
+
+export const navBarItems = [
+  { title: "خانه", link: "/", nested: false },
+  { title: "ورود مشترکین", link: "/login", nested: false },
+  {
+    title: "خدمات اینترنت",
+    link: "/internet-service",
+    nested: true,
+    treeItems: [
+      { title: "اینترنت پرسرعت adsl", link: "/adsl-internet" },
+      { title: "اینترنت نسل 4 ثابت (td-lte)", link: "/tdlte" },
+      { title: "مگافون (نسل جدیدتلفن ثابت)", link: "/megaphone" },
+      { title: "فیبر نوری (FTTH)", link: "/ftth" },
+      { title: "خدمات دیتاسنتر", link: "/datacenter-services" },
+      { title: "سرور مجازی (VPS)", link: "/vps" },
+      { title: "اینترنت پرسرعت برج ها و مجتمع ها", link: "/tower-internet" },
+      { title: "سرویس وایرلس عمومی Public WIFI", link: "/public-wifi" },
+      { title: "ip اختصاصی", link: "/static-ip" },
+    ],
+  },
+  { title: "ویژگی ها", link: "/features", nested: false },
+  { title: "ارتباط با ما", link: "/contact", nested: false },
+  { title: "درباره ما", link: "/about", nested: false },
+];

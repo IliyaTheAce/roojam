@@ -2,8 +2,9 @@
 
 import { connectToDataBase } from "@/lib/mongoose";
 import User from "@/lib/Models/User";
-
-export default async function CreateUser(
+import * as jose from "ts-jose";
+import { sign } from "jsonwebtoken";
+export async function CreateUser(
   username: string,
   password: string,
   role: number,
@@ -22,6 +23,21 @@ export default async function CreateUser(
         profilePic,
       });
     }
+    return { result: true };
+  } catch (error: any) {
+    return { result: false, forceMessage: error.message };
+  }
+}
+
+interface loginExport {
+  token: string;
+}
+export async function LoginUser(username: string, password: string) {
+  await connectToDataBase();
+  try {
+    const user = await User.findOne({ username, password });
+    const privateKey = process.env.PRIVATE_KEY;
+    sign(user._id, process.env.PRIVATE_KEY);
     return { result: true };
   } catch (error: any) {
     return { result: false, forceMessage: error.message };
