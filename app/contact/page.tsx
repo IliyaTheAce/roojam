@@ -3,9 +3,12 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import ContactUsInfoData from "@/lib/Actions/ContactUsInfoData";
 import CompanyInfoCard from "@/Components/ContactUsPage/CompanyInfoCard";
 import { useEffect, useState } from "react";
+import SendMessageActions from "@/lib/Actions/SendMessage.actions";
 
 export default function ContactUs() {
   const errorsClassnames = "mb-4 text-red-500";
+  const [result, setResult] = useState<Boolean>();
+  const [submited, setSubmited] = useState<Boolean>(false);
   const [CompanyInfo, setCompanyInfo] = useState([]);
   useEffect(() => {
     fetchData();
@@ -35,17 +38,26 @@ export default function ContactUs() {
       <div className={" max-w-[370px] z-[1]"}>
         <Formik
           initialValues={{
-            name: "",
+            composer: "",
             email: "",
             phoneNumber: "",
             subject: "",
             message: "",
           }}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+          onSubmit={async (values, { setSubmitting }) => {
+            setSubmited(true);
+            const { subject, message, email, phoneNumber, composer } = values;
+            const response = await SendMessageActions(
+              subject,
+              message,
+              phoneNumber,
+              composer,
+              email
+            );
+
+            setResult(response.result);
+
+            setSubmitting(false);
           }}
           validate={(values) => {
             const errors = {};
@@ -164,6 +176,17 @@ export default function ContactUs() {
               >
                 {isSubmitting ? "درحال ارسال" : "ارسال"}
               </button>
+              {submited ? (
+                result ? (
+                  <label className={"mt-4 text-green-400"}>ارسال شد</label>
+                ) : (
+                  <label className={`${errorsClassnames} mt-4`}>
+                    پیام ارسال نشد
+                  </label>
+                )
+              ) : (
+                ""
+              )}
             </Form>
           )}
         </Formik>

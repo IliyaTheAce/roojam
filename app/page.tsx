@@ -16,6 +16,7 @@ import Hero from "@/Components/HomePage/Hero";
 import React from "react";
 import Stats from "@/Components/HomePage/Stats";
 import Services from "@/Components/HomePage/Services";
+import CTA from "@/Components/HomePage/CTA";
 
 export default async function Home() {
   const data = await MainPageData();
@@ -53,7 +54,7 @@ export default async function Home() {
           <Services />
           {/*<AboutUs />*/}
           {/*<Clients />*/}
-          {/*<CTA />*/}
+          <CTA />
           {/*/!*<Footer/>*!/*/}
         </div>
       </div>
