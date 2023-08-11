@@ -115,7 +115,7 @@ export const stats = [
 
 export const navBarItems = [
   { title: "خانه", link: "/", nested: false },
-  { title: "ورود مشترکین", link: "/login", nested: false },
+  // { title: "ورود مشترکین", link: "/login", nested: false },
   {
     title: "خدمات اینترنت",
     link: "/internet-service",
@@ -135,4 +135,27 @@ export const navBarItems = [
   { title: "ویژگی ها", link: "/features", nested: false },
   { title: "ارتباط با ما", link: "/contact", nested: false },
   { title: "درباره ما", link: "/about", nested: false },
+];
+export const features = [
+	{
+		id: "feature-1",
+		icon: Group,
+		title: "مشاوره",
+		content:
+		 "The best credit cards offer some tantalizing combinations of promotions and prizes",
+	},
+	{
+		id: "feature-2",
+		icon: Management,
+		title: "مدیریت",
+		content:
+		 "We take proactive steps make sure your information and transactions are secure.",
+	},
+	{
+		id: "feature-4",
+		icon: Support,
+		title: "پشتیبانی",
+		content:
+		 "A balance transfer credit card can save you a lot of money in interest charges.",
+	},
 ];

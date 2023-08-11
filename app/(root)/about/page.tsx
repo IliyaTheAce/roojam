@@ -24,7 +24,6 @@ export default async function AboutUs() {
       >
         {about &&
           about.map((item) => {
-            console.log(item.content);
             return (
               <>
                 <Image

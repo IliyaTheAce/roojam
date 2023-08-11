@@ -17,6 +17,9 @@ import React from "react";
 import Stats from "@/Components/HomePage/Stats";
 import Services from "@/Components/HomePage/Services";
 import CTA from "@/Components/HomePage/CTA";
+import AboutUs from "@/Components/HomePage/AboutUs";
+import Clients from "@/Components/HomePage/Clients";
+import Business from "@/Components/HomePage/Business";
 
 export default async function Home() {
   const data = await MainPageData();
@@ -49,11 +52,11 @@ export default async function Home() {
       <div className={`bg-primary ${styles.flexStart} ${styles.paddingX}`}>
         <div className={`${styles.boxWidth}`}>
           <Stats />
-          {/*<Business />*/}
+          <Business />
           {/*/!*<Billing/>*!/*/}
           <Services />
-          {/*<AboutUs />*/}
-          {/*<Clients />*/}
+          <AboutUs />
+          <Clients />
           <CTA />
           {/*/!*<Footer/>*!/*/}
         </div>

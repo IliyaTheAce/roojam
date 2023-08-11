@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "@/app/style";
 import Navbar from "@/Components/Shared/Navbar";
 import Footer from "@/Components/Shared/Footer";
+import TokenContex from "@/utils/TokenContex";
 
 export const metadata: Metadata = {
   title: "رویش جوانه امید مهر - رجام",
@@ -21,9 +22,15 @@ export default function RootLayout({
   return (
     <html lang="fa" dir={"rtl"}>
       <body>
-        <main className={"bg-primary w-full bg-primary flex justify-center items-center h-screen"}>
-          {children}
-        </main>
+        <TokenContex>
+          <main
+            className={
+              "bg-primary w-full bg-primary flex justify-center items-center h-screen"
+            }
+          >
+            {children}
+          </main>
+        </TokenContex>
       </body>
     </html>
   );
