@@ -1,12 +1,16 @@
-"use client";
-import { useState } from "react";
+// "use client";
+// import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { navBarItems } from "@/Constants";
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
   return (
-    <div className={"w-full flex py-6 justify-between items-center navbar font-shabnam"}>
+    <div
+      className={
+        "w-full flex py-6 justify-between items-center navbar font-shabnam"
+      }
+    >
       <div className={"w-full flex py-6 justify-between items-center navbar"}>
         <ul
           className={
@@ -16,17 +20,15 @@ const Navbar = () => {
           {navBarItems.map((item) => {
             return (
               <li
-              key={item.title}
+                key={item.title}
                 className={
-                  " group relative font-normal cursor-pointer text-[18px] text-white hover:text-secondary transition-all ml-10  " 
+                  " group relative font-normal cursor-pointer text-[18px] text-white hover:text-secondary transition-all ml-10  "
                 }
               >
                 <Link
                   href={item.link}
                   className={
-                    item.nested
-                      ? "flex items-center gap-1 justify-center"
-                      : ""
+                    item.nested ? "flex items-center gap-1 justify-center" : ""
                   }
                 >
                   {item.title}
@@ -55,7 +57,7 @@ const Navbar = () => {
                       item.treeItems.map((treeItem) => {
                         return (
                           <Link
-                          key={treeItem.title}
+                            key={treeItem.title}
                             href={treeItem.link}
                             className="hover:text-gray-600 transition-colors"
                           >
@@ -79,7 +81,7 @@ const Navbar = () => {
             alt={"roojam"}
           />
         </a>
-        <div className={"sm:hidden flex flex-1 justify-end items-center"}>
+        {/* <div className={"sm:hidden flex flex-1 justify-end items-center"}>
           <img
             src={toggle ? "/assets/close.svg" : "/assets/menu.svg"}
             alt={"menu"}
@@ -134,7 +136,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
