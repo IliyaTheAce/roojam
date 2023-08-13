@@ -4,11 +4,12 @@ import AboutPageData from "@/lib/Actions/AboutData";
 
 export default async function AboutUs() {
   const data = await AboutPageData();
+  console.log(data.data)
   return (
     <section className={layout.section}>
       <div className={`${layout.sectionInfo} rightside`}>
         <h2 className={`${styles.heading2} font-shabnam`}>درباره ما</h2>
-        {data.data && data.data[0].content && (
+        {data.data && data.data?.length !== 0 && data.data[0].content && (
           <p
             className={`${styles.paragraph} font-shabnam max-w-[470px] mt-5 text-justify`}
             dangerouslySetInnerHTML={{ __html: data.data[0].content }}
