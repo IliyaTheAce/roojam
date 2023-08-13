@@ -134,7 +134,7 @@ export const navBarItems = [
     ],
   },
   { title: "ویژگی ها", link: "/features", nested: false },
-  { title: "ارتباط با ما", link: "/contact", nested: false },
+  { title: "تماس با ما", link: "/contact", nested: false },
   { title: "درباره ما", link: "/about", nested: false },
 ];
 export const features = [
