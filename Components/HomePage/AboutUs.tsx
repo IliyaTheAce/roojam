@@ -8,7 +8,7 @@ export default async function AboutUs() {
     <section className={layout.section}>
       <div className={`${layout.sectionInfo} rightside`}>
         <h2 className={`${styles.heading2} font-shabnam`}>درباره ما</h2>
-        {data.data[0].content && (
+        {data.data && data.data[0].content && (
           <p
             className={`${styles.paragraph} font-shabnam max-w-[470px] mt-5 text-justify`}
             dangerouslySetInnerHTML={{ __html: data.data[0].content }}
