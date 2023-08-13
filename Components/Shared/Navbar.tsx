@@ -16,6 +16,7 @@ const Navbar = () => {
           {navBarItems.map((item) => {
             return (
               <li
+              key={item.title}
                 className={
                   " group relative font-normal cursor-pointer text-[18px] text-white hover:text-secondary transition-all ml-10  " 
                 }
@@ -54,6 +55,7 @@ const Navbar = () => {
                       item.treeItems.map((treeItem) => {
                         return (
                           <Link
+                          key={treeItem.title}
                             href={treeItem.link}
                             className="hover:text-gray-600 transition-colors"
                           >

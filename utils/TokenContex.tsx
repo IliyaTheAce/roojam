@@ -1,6 +1,9 @@
 "use client";
 import { ReactNode, createContext, useContext, useEffect, useState } from "react";
-const tokenContex = createContext("");
+const tokenContex = createContext({
+  token:'',
+  SubmitToken: (token: string)=> {}
+});
 
 export default function TokenContex({ children }: { children: ReactNode }) {
   const [token, setToken] = useState("");

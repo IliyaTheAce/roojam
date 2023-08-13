@@ -21,13 +21,15 @@ export default function RootLayout({
   return (
     <html lang="fa" dir={"rtl"}>
       <body>
-        <main className={"bg-primary w-full bg-primary "}>
+        <main className={"bg-primary w-full bg-primary"}>
           <div className={`${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`${styles.boxWidth}`}>
               <Navbar />
             </div>
           </div>
+      
           {children}
+    
           <div className={`bg-primary ${styles.flexStart} ${styles.paddingX}`}>
             <div className={`${styles.boxWidth}`}>
               <Footer />
