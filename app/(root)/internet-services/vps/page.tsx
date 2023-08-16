@@ -1,4 +1,4 @@
-export default function adsl() {
+export default function page() {
   return (
     <section className="flex flex-col items-center justify-center text-white w-full  max-w-[1280px] mx-auto gap-12">
       <h1 className="text-3xl font-semibold text-center">

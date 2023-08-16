@@ -7,7 +7,7 @@ export const connectToDataBase = async () => {
 
   if (!process.env.MONGODB_URL)
     return console.error("No environment mongo db connection url.");
-  if (isConnected) return console.log("Already connected.");
+  if (isConnected) return;
 
   try {
     await mongoose.connect(process.env.MONGODB_URL);

@@ -18,7 +18,6 @@ export default function LoginPage() {
           onSubmit={async (values, { setSubmitting, setErrors }) => {
             setErrors({ password: "mame" });
             // console.log(token.SubmitToken('asdas'))
-            console.log(token.token);
             setSubmitting(false);
           }}
         >

@@ -4,7 +4,6 @@ import AboutPageData from "@/lib/Actions/AboutData";
 
 export default async function AboutUs() {
   const data = await AboutPageData();
-  console.log(data.data)
   return (
     <section className={layout.section}>
       <div className={`${layout.sectionInfo} rightside`}>
