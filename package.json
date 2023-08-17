@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p 9132",
+    "start": "next start -p 8002",
     "lint": "next lint"
   },
   "dependencies": {
