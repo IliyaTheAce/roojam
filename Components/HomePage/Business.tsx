@@ -2,6 +2,7 @@ import styles, { layout } from "@/app/style";
 import Button from "../Shared/Button";
 import { features } from "@/Constants";
 import BusinessData from "@/lib/Actions/BusinessData";
+import Image from "next/image";
 
 const FeatureCard = ({
   imgUrl,
@@ -22,9 +23,11 @@ const FeatureCard = ({
     <div
       className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-dimBlue`}
     >
-      <img
+      <Image
         alt={"icon"}
         src={imgUrl}
+        width={0}
+        height={0}
         className={"w-[50%] h-[50%] object-contain fill-white"}
       />
     </div>

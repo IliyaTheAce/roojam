@@ -133,7 +133,7 @@ export const navBarItems = [
       { title: "ip اختصاصی", link: "/internet-services/dedicated-ip" },
     ],
   },
-  { title: "ویژگی ها", link: "/features", nested: false },
+  // { title: "ویژگی ها", link: "/features", nested: false },
   { title: "تماس با ما", link: "/contact", nested: false },
   { title: "درباره ما", link: "/about", nested: false },
 ];
@@ -160,3 +160,87 @@ export const features = [
 		 "A balance transfer credit card can save you a lot of money in interest charges.",
 	},
 ];
+
+export const AdslPrices = [
+  {
+    name: "سرویس های جشنواره",
+    services: [
+      {
+        period:"جشنواره 3 ماهه",
+        imgUrl:"/assets/adsl/700.jpg"
+      },
+      {
+        period:"جشنواره 3 ماهه",
+        imgUrl:"/assets/adsl/1500.jpg"
+      },
+      {
+        period:"جشنواره 5 ماهه",
+        imgUrl:"/assets/adsl/2000.jpg"
+      },
+      {
+        period:"جشنواره 6 ماهه",
+        imgUrl:"/assets/adsl/3300.jpg"
+      },
+      {
+        period:"جشنواره 12 ماهه",
+        imgUrl:"/assets/adsl/120.jpg"
+      },
+      {
+        period:"جشنواره 12 ماهه",
+        imgUrl:"/assets/adsl/7000.jpg"
+      },
+    ]
+  },
+  {
+    name: "سرویس های پیشنهادی (گیگ پلاس)",
+    services: [
+      {
+        period:"4 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/4-meg-2-1.png"
+      },
+      {
+        period:"8 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/8-meg-1.png"
+      },
+      {
+        period:"8 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/8-meg-2.png"
+
+      },
+      {
+        period:"16 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/16-meg-1.png"
+      },
+      {
+        period:"16 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/16-meg-2.png"
+      },
+    ]
+  },
+  {
+    name: "سرویس های عادی",
+    services: [
+      {
+        period:"2 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/2MB-1402.png"
+      },
+      {
+        period:"4 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/4MB-1402.png"
+      },
+      {
+        period:"8 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/8MB-1402.png"
+
+      },
+      {
+        period:"16 مگابیت بر ثانیه",
+        imgUrl:"/assets/adsl/16MB-1402.png"
+      },
+      {
+        period:"ترافیک",
+        imgUrl:"/assets/adsl/traffic.jpg"
+      },
+    ]
+  }
+]
