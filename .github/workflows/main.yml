@@ -14,4 +14,4 @@ jobs:
         server: ftp.roojam.ir
         username: roojamir
         password: ${{ secrets.ftp_password }}
-        server-dir: /home/roojamir/roojam
+        server-dir: /home/roojamir/roojam/
