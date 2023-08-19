@@ -115,6 +115,9 @@ export default function page() {
             تضمین کیفیت
             </li>
                       </ol>
+                      <br />
+                      <br />
+                      برای دریافت سرویس فیبر نوری با شماره <a className="text-secondary" href="tel:+982632732485">02632732485</a> تماس بگیرید.
       </div>
     </div>
   </section>

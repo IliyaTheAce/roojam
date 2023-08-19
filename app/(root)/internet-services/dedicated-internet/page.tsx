@@ -169,8 +169,7 @@ export default function page() {
       <div className="text-right w-full">
         <h2 className="text-secondary">نحوه دریافت سرور:</h2>
         <p className="px-8 mt-4 text-justify">
-          برای دریافت سرویس پهنای باند اختصاصی با کلیک بر روی دکمه زیر ثبت نام
-          خود را تکمیل کنید و یا با شماره ۱۵۷۷ تماس بگیرید.
+          برای دریافت سرویس پهنای باند اختصاصی با شماره <a className="text-secondary" href="tel:+982632732485">02632732485</a>  تماس بگیرید.
         </p>
       </div>
     </section>

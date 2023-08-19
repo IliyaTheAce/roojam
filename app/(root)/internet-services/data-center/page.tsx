@@ -145,7 +145,7 @@ export default function page() {
       <h2 className="text-secondary">
 تعرفه دیتاسنتر        </h2>
       <div className="px-8 mt-4 text-justify">
-      جهت کسب اطلاعات بیشتر و دریافت مشاره رایگان برای سرویس دیتاسنتر (ِDatacenter) با شماره ۱۵۷۷ تماس بگیرید.
+      جهت کسب اطلاعات بیشتر و دریافت مشاره رایگان برای سرویس دیتاسنتر (ِDatacenter) با شماره <a className="text-secondary" href="tel:+982632732485">02632732485</a>  تماس بگیرید.
       </div>
     </div>
   </section>

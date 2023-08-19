@@ -95,7 +95,7 @@ export default function page() {
         <h2 className="text-secondary">تعرفه سرور مجازی</h2>
         <div className="px-8 mt-4 text-justify">
           جهت کسب اطلاعات بیشتر و دریافت مشاوره رایگان برای سرویس سرورمجازی
-          (VPS) با شماره ۱۵۷۷ تماس بگیرید.
+          (VPS) با شماره <a className="text-secondary" href="tel:+982632732485">02632732485</a> تماس بگیرید.
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
-    domains: ["roojam.ir"],
+    domains: ["roojam.ir","upload.roojam.ir"],
   },
 };
 

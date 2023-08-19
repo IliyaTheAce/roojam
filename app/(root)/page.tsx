@@ -23,24 +23,6 @@ import Business from "@/Components/HomePage/Business";
 
 export default async function Home() {
   const data = await MainPageData();
-  // const sr = ScrollReveal({
-  //   distance: "65px",
-  //   duration: 2500,
-  //   reset: false,
-  // });
-  // sr.reveal(".hero-img", {
-  //   delay: 450,
-  //   origin: " right",
-  // });
-  // sr.reveal(".rightside", {
-  //   origin: " right",
-  // });
-  // sr.reveal(".leftside", {
-  //   origin: "left",
-  // });
-  // sr.reveal(".topside", {
-  //   origin: "top",
-  // });
   return (
     <>
       <div className={`bg-primary ${styles.flexStart}`}>

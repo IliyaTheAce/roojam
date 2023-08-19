@@ -79,8 +79,9 @@ export default function page() {
         <div className=" px-4 py-5 bg-dimBlue rounded-lg min-w-[250px]">
           <h2 className="text-lg text-secondary">چطور بخرم!</h2>
           <ol className="list-disc pr-3 mt-2">
-            <li>تماس تلفنی با 1577</li>
-            <li>ثبت نام آنلاین</li>
+    
+            <li>تماس تلفنی با <a className="text-secondary" href="tel:+982632732485">02632732485</a>  </li>
+            <li>ثبت نام آنلاین (به صورت موقت غیرفعال)</li>
             <li>ثبت نام حضوری</li>
           </ol>
         </div>
