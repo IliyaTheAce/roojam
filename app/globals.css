@@ -12,7 +12,7 @@
     font-family: tunisia;
     src: url('/assets/Mj_Tunisia Bd_0.ttf');
 }
-
+@import "~@flaticon/flaticon-uicons/css/all/all";
 
 @tailwind base;
 @tailwind components;
@@ -207,4 +207,11 @@ body {
 
 .hero-img-intro{
     animation: ease-in ;
+}
+
+.message_table td {
+    padding: 8px 15px;
+}
+.message_table th {
+    padding: 8px 15px;
 }
