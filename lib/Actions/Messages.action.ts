@@ -66,7 +66,7 @@ export async function GetTodaysMessage() {
     return await ContactUsMessage.count({time:{ $gte: start}});
 
   } catch (error: any) {
-    return { result: false, forceMessage: error.message };
+    return -1;
   }
 }
 
@@ -79,6 +79,6 @@ export async function GetUnreadMessages() {
     return await ContactUsMessage.count({read: {$not: { $eq: true}}});
 
   } catch (error: any) {
-    return { result: false, forceMessage: error.message };
+    return -1;
   }
 }
