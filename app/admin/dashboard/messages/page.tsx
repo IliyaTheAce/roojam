@@ -1,9 +1,10 @@
 "use client";
-import FetchMessages from "@/lib/Actions/FetchMessages";
+import FetchMessages, { DeleteMessage } from "@/lib/Actions/Messages.action";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 export default function Dashboard() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [data, setData] = useState({});
   var pageNumber = 1;
@@ -21,8 +22,18 @@ export default function Dashboard() {
     <div className="w-full box-border ">
       <div>
         <section className="bg-white rounded-lg">
-          <header className="border-[#eff2f7] px-4 py-3 text-2xl font-yekan border-b-[1px]">
+          <header className="border-[#eff2f7] px-4 py-3 text-2xl font-yekan border-b-[1px] flex w-full justify-between items-center">
+            <span>
             پیام ها
+            </span>
+            <button
+                          className="p-2 bg-blue-400 rounded-lg"
+                          onClick={async () => {
+                           FetchData();
+                          }}
+                        >
+                          <i className="fi fi-br-refresh flex items-center text-white"></i>
+                        </button>
           </header>
           <table className="w-full bg-transparent table border-gray-600 table-striped table-advance table-hover message_table">
             <thead className="table-header-group">
@@ -56,10 +67,22 @@ export default function Dashboard() {
                         </span>
                       </td>
                       <td>
-                        <button className="p-2 bg-green-300 rounded-lg ml-2">
+                        <button
+                          className="p-2 bg-green-300 rounded-lg ml-2"
+                          onClick={() => {
+                            router.push(
+                              `/admin/dashboard/messages/${item._id}`
+                            );
+                          }}
+                        >
                           <i className="fi fi-rr-eye flex items-center "></i>
                         </button>
-                        <button className="p-2 bg-red-300 rounded-lg">
+                        <button
+                          className="p-2 bg-red-300 rounded-lg"
+                          onClick={async () => {
+                            await DeleteMessage(item._id);
+                          }}
+                        >
                           <i className="fi fi-rr-trash flex items-center"></i>
                         </button>
                       </td>

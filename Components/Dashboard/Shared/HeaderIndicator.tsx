@@ -1,6 +1,6 @@
 interface props {
   icon: string;
-  number: number;
+  number: any;
 }
 
 export default function Indicator(props: props) {
