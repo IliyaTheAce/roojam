@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   const data = await request.formData();
+  console.log(data)
   const file: File | null = data.get("file") as unknown as File;
 
   if (!file) {
@@ -12,11 +13,12 @@ export async function POST(request: NextRequest) {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
 
-  // With the file data in the buffer, you can do whatever you want with it.
-  // For this, we'll just write it to the filesystem in a new location
-  const path = `${process.env.UPLOAD_DIR}/${new Date().getTime()}-${file.name}`;
+  const fileName = `${new Date().getTime()}-${file.name}`;
+  const path = `${process.env.UPLOAD_DIR}/${fileName}`;
   await writeFile(path, buffer);
   console.log(`open ${path} to see the uploaded file`);
 
   return NextResponse.json({ url: path });
+  //For Production
+  return NextResponse.json({ url: fileName });
 }

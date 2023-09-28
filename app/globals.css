@@ -1,16 +1,16 @@
 /*@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");*/
 
 @font-face {
-    font-family: shabnam;
-    src: url('/assets/Shabnam.ttf');
+  font-family: shabnam;
+  src: url("/assets/Shabnam.ttf");
 }
 @font-face {
-    font-family: yekan;
-    src: url('/assets/Yekan.ttf');
+  font-family: yekan;
+  src: url("/assets/Yekan.ttf");
 }
 @font-face {
-    font-family: tunisia;
-    src: url('/assets/Mj_Tunisia Bd_0.ttf');
+  font-family: tunisia;
+  src: url("/assets/Mj_Tunisia Bd_0.ttf");
 }
 @import "~@flaticon/flaticon-uicons/css/all/all";
 
@@ -18,200 +18,204 @@
 @tailwind components;
 @tailwind utilities;
 
-html,.app,.content{
-    min-height: 100%;
-    width: 100%;
-    /*background-color: #ff0000;*/
+html,
+.app,
+.content {
+  min-height: 100%;
+  width: 100%;
+  /*background-color: #ff0000;*/
 }
-.app{
-    display: flex;
-    position: relative;
-
+.app {
+  display: flex;
+  position: relative;
 }
 body {
-    font-family: shabnam,sans-serif;
+  font-family: shabnam, sans-serif;
 
-    min-height: 100%;
-    width: 100%;
-    background-color: rgba(26,26,26,1);
-    --black-gradient: linear-gradient(
-            144.39deg,
-            #ffffff -278.56%,
-            #6d6d6d -78.47%,
-            #11101d 91.61%
-    );
-    --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  min-height: 100%;
+  width: 100%;
+  background-color: rgba(26, 26, 26, 1);
+  --black-gradient: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
 * {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .text-gradient {
-    background: radial-gradient(
-            64.18% 64.18% at 71.16% 35.69%,
-            #def9fa 0.89%,
-            #bef3f5 17.23%,
-            #9dedf0 42.04%,
-            #7de7eb 55.12%,
-            #5ce1e6 71.54%,
-            #33bbcf 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #def9fa 0.89%,
+    #bef3f5 17.23%,
+    #9dedf0 42.04%,
+    #7de7eb 55.12%,
+    #5ce1e6 71.54%,
+    #33bbcf 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .text-gradient-2 {
-    background: radial-gradient(
-            64.18% 64.18% at 71.16% 35.69%,
-            #99c997 0.89%,
-            #82cc7f 17.23%,
-            #6bce68 42.04%,
-            #53ce50 55.12%,
-            #43cb3f 71.54%,
-            #38cf33 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #99c997 0.89%,
+    #82cc7f 17.23%,
+    #6bce68 42.04%,
+    #53ce50 55.12%,
+    #43cb3f 71.54%,
+    #38cf33 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .bg-blue-gradient {
-    background: linear-gradient(
-            157.81deg,
-            #def9fa -43.27%,
-            #bef3f5 -21.24%,
-            #9dedf0 12.19%,
-            #7de7eb 29.82%,
-            #5ce1e6 51.94%,
-            #33bbcf 90.29%
-    );
+  background: linear-gradient(
+    157.81deg,
+    #def9fa -43.27%,
+    #bef3f5 -21.24%,
+    #9dedf0 12.19%,
+    #7de7eb 29.82%,
+    #5ce1e6 51.94%,
+    #33bbcf 90.29%
+  );
 }
 
 .bg-green-gradient {
-    background: linear-gradient(
-            30deg,
-            #e0fade -43.27%,
-            #bef5c1 -21.24%,
-            #b9f09d 12.19%,
-            #95eb7d 29.82%,
-            #8ae65c 51.94%,
-            #38cf33 90.29%
-    );
+  background: linear-gradient(
+    30deg,
+    #e0fade -43.27%,
+    #bef5c1 -21.24%,
+    #b9f09d 12.19%,
+    #95eb7d 29.82%,
+    #8ae65c 51.94%,
+    #38cf33 90.29%
+  );
 }
 
 .bg-black-gradient {
-    background: linear-gradient(
-            144.39deg,
-            #ffffff -278.56%,
-            #6d6d6d -78.47%,
-            #11101d 91.61%
-    );
+  background: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
 }
 
 .bg-black-gradient-2 {
-    background: linear-gradient(
-            -168.39deg,
-            #ffffff -278.56%,
-            #6d6d6d -78.47%,
-            #11101d 91.61%
-    );
+  background: linear-gradient(
+    -168.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
 }
 
 .bg-gray-gradient {
-    background: linear-gradient(
-            153.47deg,
-            rgba(255, 255, 255, 0) -341.94%,
-            #14101d 95.11%
-    );
+  background: linear-gradient(
+    153.47deg,
+    rgba(255, 255, 255, 0) -341.94%,
+    #14101d 95.11%
+  );
 }
 
 .bg-discount-gradient {
-    background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
+  background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
 }
 
 .box-shadow {
-    box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
 .sidebar {
-    -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @-webkit-keyframes slide-top {
-    0% {
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide-top {
-    0% {
-        -webkit-transform: translatex(100px);
-        transform: translatex(100px);
-    }
-    100% {
-        -webkit-transform: translatex(0);
-        transform: translatex(0);
-    }
+  0% {
+    -webkit-transform: translatex(100px);
+    transform: translatex(100px);
+  }
+  100% {
+    -webkit-transform: translatex(0);
+    transform: translatex(0);
+  }
 }
 
 .feature-card:hover {
-    background: var(--black-gradient);
-    box-shadow: var(--card-shadow);
+  background: var(--black-gradient);
+  box-shadow: var(--card-shadow);
 }
 
 .feedback-container .feedback-card:last-child {
-    margin-right: 0px;
+  margin-right: 0px;
 }
 
 .feedback-card {
-    background: transparent;
+  background: transparent;
 }
 
 .feedback-card:hover {
-    background: var(--black-gradient);
+  background: var(--black-gradient);
 }
 
 .blue__gradient {
-    background: linear-gradient(180deg, rgb(182, 182, 182) 0%, #2682fa 100%);
-    filter: blur(123px);
+  background: linear-gradient(180deg, rgb(182, 182, 182) 0%, #2682fa 100%);
+  filter: blur(123px);
 }
 
-.bg-transparent{
-    background: rgba(224,250,222,0);
+.bg-transparent {
+  background: rgba(224, 250, 222, 0);
 }
 
 .pink__gradient {
-    background: linear-gradient(90deg, #9a9a9a 0%, #ff9999 100%);
-    filter: blur(900px);
+  background: linear-gradient(90deg, #9a9a9a 0%, #ff9999 100%);
+  filter: blur(900px);
 }
 
 .white__gradient {
-    background: rgba(255, 255, 255, 0.6);
-    filter: blur(750px);
+  background: rgba(255, 255, 255, 0.6);
+  filter: blur(750px);
 }
 
 .display-content {
-    display: contents;
+  display: contents;
 }
 
-.hero-img-intro{
-    animation: ease-in ;
+.hero-img-intro {
+  animation: ease-in;
 }
 
 .message_table td {
-    padding: 8px 15px;
+  padding: 8px 15px;
 }
 .message_table th {
-    padding: 8px 15px;
+  padding: 8px 15px;
+}
+
+.ck-editor__editable {
+  min-height: 400px;
 }
