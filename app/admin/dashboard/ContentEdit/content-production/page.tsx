@@ -12,7 +12,7 @@ type videoType = {
   url: string;
 };
 export default function ContentProductionEdit() {
-  //   const router = useRouter();
+  const router = useRouter();
   const [videos, setVideos] = useState<videoTypes>([]);
   const [content, setContent] = useState("");
   const [startingValue, setStartingValue] = useState("");
@@ -20,11 +20,12 @@ export default function ContentProductionEdit() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    FetchData();
+    fetchData();
   }, []);
 
-  async function FetchData() {
-    const result = await ContentCreationData();
+  const fetchData = async () => {
+    const response = await fetch("/api/content/content-production");
+    const result = await response.json();
     if (result.result) {
       setContent(result.data.Content);
       setStartingValue(result.data.Content);
@@ -33,7 +34,7 @@ export default function ContentProductionEdit() {
       }
       setLoading(false);
     }
-  }
+  };
 
   const handleChange = (newContent: string) => {
     console.log("handled");
@@ -57,10 +58,25 @@ export default function ContentProductionEdit() {
     prevVideos.splice(index, 1);
     setVideos(prevVideos);
   };
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    console.log("Submitting");
+    const data = {
+      Content: content,
+      Videos: videos,
+    };
+    const res = await fetch("/api/content/content-production", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    setLoading(false);
+    router.refresh();
+  };
   return (
     <main className="relative flex flex-col gap-5 p-5 rounded-lg bg-white">
       {loading && (
-        <div className="absolute top-0 right-0 w-full h-full bg-white bg-opacity-100 flex items-center justify-center z-40">
+        <div className="absolute top-0 right-0 w-full h-full bg-white bg-opacity-100 flex items-center justify-center z-[5]">
           در حال بارگزاری...
         </div>
       )}
@@ -89,7 +105,7 @@ export default function ContentProductionEdit() {
         </div>
         <table className="w-full">
           <thead>
-            <tr>
+            <tr className="text-right">
               <th>ردیف</th>
               <th>نام</th>
               <th>عملیات</th>
@@ -111,12 +127,18 @@ export default function ContentProductionEdit() {
                         placeholder="تیتر ویدیو"
                       />
                     </td>
-                    <td>
+                    <td className="flex flex-row gap-2">
                       <button
                         onClick={() => handleDeleteItem(index)}
                         className="px-3 py-2 bg-red-500 text-white rounded-lg hover:bg-red-300 transition-colors "
                       >
                         حذف
+                      </button>
+                      <button
+                        onClick={() => window.open(item.url)}
+                        className="px-3 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-300 transition-colors "
+                      >
+                        نمایش
                       </button>
                     </td>
                   </tr>
@@ -134,15 +156,7 @@ export default function ContentProductionEdit() {
       />
       <div>
         <button
-          onClick={async () => {
-            console.log('Submitting')
-            const data = {
-              Content: content,
-              Videos: videos,
-            };
-            const res = await ContentCreationDataEdit(data);
-            // router.reload();
-          }}
+          onClick={async () => handleSubmit()}
           className="px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-300 transition-colors "
         >
           ثبت تغییرات

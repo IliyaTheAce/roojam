@@ -8,7 +8,7 @@ import { videoTypes } from "@/app/admin/dashboard/ContentEdit/content-production
 export default async function ContentCreationData() {
   await connectToDataBase();
   try {
-    const result = await ContentCreation.findOne().populate("Videos");
+    const result = await ContentCreation.findOne();
     return {
       result: true,
       data: result,

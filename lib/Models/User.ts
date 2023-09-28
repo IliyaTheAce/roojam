@@ -4,7 +4,7 @@ import { number } from "prop-types";
 const userSchema = new mongoose.Schema({
   username: { type: String, require: true },
   password: { type: String, require: true },
-  role: { type: number, require: true },
+  role: { type: Number, require: true },
   viewName: { type: String, require: true },
   profilePic: { type: String, require: false },
 });
