@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-    serverComponentsExternalPackages: ["mongoose"],
-  },
+  // experimental: {
+  //   serverActions: true,
+  //   serverComponentsExternalPackages: ["mongoose"],
+  // },
   images: {
     domains: ["roojam.ir", "upload.roojam.ir"],
   },
