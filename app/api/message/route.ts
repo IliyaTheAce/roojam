@@ -15,7 +15,7 @@ export async function DELETE(req: Request) {
   try {
     return NextResponse.json(await ContactUsMessage.findByIdAndDelete(uid));
   } catch (error: any) {
-    return { result: false, forceMessage: error.message };
+    return NextResponse.json({ result: false, forceMessage: error.message });
   }
 }
 

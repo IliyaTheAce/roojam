@@ -1,7 +1,6 @@
 import styles, { layout } from "@/app/style";
 import Button from "../Shared/Button";
 import { features } from "@/Constants";
-import BusinessData from "@/lib/Actions/BusinessData";
 import Image from "next/image";
 import { BaseUrl } from "@/Constants/Config";
 
@@ -69,17 +68,27 @@ const Business = async () => {
       </div>
       <div className={`${layout.sectionImg} flex-col leftside`}>
         {data.cards &&
-          data.cards.map((feature:{_id:string , title:string , content:string ,imgUrl:string}, index:number) => (
-            <div key={feature._id}>
-              <FeatureCard
-                key={feature._id}
-                title={feature.title}
-                content={feature.content}
-                imgUrl={feature.imgUrl}
-                index={index}
-              />
-            </div>
-          ))}
+          data.cards.map(
+            (
+              feature: {
+                _id: string;
+                title: string;
+                content: string;
+                imgUrl: string;
+              },
+              index: number
+            ) => (
+              <div key={feature._id}>
+                <FeatureCard
+                  key={feature._id}
+                  title={feature.title}
+                  content={feature.content}
+                  imgUrl={feature.imgUrl}
+                  index={index}
+                />
+              </div>
+            )
+          )}
       </div>
     </section>
   );

@@ -11,6 +11,6 @@ export async function GET() {
       await ContactUsMessage.count({ time: { $gte: start } })
     );
   } catch (error: any) {
-    return -1;
+    return NextResponse.json(-1);
   }
 }

@@ -9,6 +9,6 @@ export async function GET() {
       await ContactUsMessage.count({ read: { $not: { $eq: true } } })
     );
   } catch (error: any) {
-    return -1;
+    return NextResponse.json(-1);
   }
 }
