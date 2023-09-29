@@ -1,11 +1,15 @@
-import ContentCreationData from "@/lib/Actions/ContentCreation.action";
 import VideoPlayer from "./VideoPlayer";
-import { url } from "inspector";
 import { BaseUrl } from "@/Constants/Config";
-
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  description:
+    "خدمات تولید محتوا با کیفیت برای کسب و کارها , محتوا سازی حرفه‌ای برای بهبود دیدگاه و شناخت برند شما",
+  title: "رجام - تولید محتوا",
+};
 export default async function ContentProduction() {
   const response = await fetch(
-    new URL("/api/content/content-production", BaseUrl)
+    new URL("/api/content/content-production", BaseUrl),
+    { cache: "default" }
   );
   const data = await response.json();
   return (

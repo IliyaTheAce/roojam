@@ -1,9 +1,10 @@
 import styles, { layout } from "@/app/style";
 import Button from "../Shared/Button";
-import AboutPageData from "@/lib/Actions/AboutData";
+import { BaseUrl } from "@/Constants/Config";
 
 export default async function AboutUs() {
-  const data = await AboutPageData();
+  const response = await fetch(new URL("/api/content/About", BaseUrl));
+  const data = await response.json();
   return (
     <section className={layout.section}>
       <div className={`${layout.sectionInfo} rightside`}>

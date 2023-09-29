@@ -1,17 +1,4 @@
 import styles from "../style";
-// import {
-//   AboutUs,
-//   Business,
-//   Clients,
-//   CTA,
-//   Footer,
-//   Hero,
-//   Navbar,
-//   Services,
-//   Stats,
-// } from "../Components/Index.js";
-import { RevealWrapper } from "next-reveal";
-import MainPageData from "@/lib/Actions/mainPageData.actions";
 import Hero from "@/Components/HomePage/Hero";
 import React from "react";
 import Stats from "@/Components/HomePage/Stats";
@@ -20,9 +7,11 @@ import CTA from "@/Components/HomePage/CTA";
 import AboutUs from "@/Components/HomePage/AboutUs";
 import Clients from "@/Components/HomePage/Clients";
 import Business from "@/Components/HomePage/Business";
+import { BaseUrl } from "@/Constants/Config";
 
 export default async function Home() {
-  const data = await MainPageData();
+  // const response = await fetch(new URL("/api/content/Home", BaseUrl));
+  // const data = await response.json();
   return (
     <>
       <div className={`bg-primary ${styles.flexStart}`}>

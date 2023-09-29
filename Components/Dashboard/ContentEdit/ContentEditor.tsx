@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { createRef } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Font from "@ckeditor/ckeditor5-font";
+import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
+import { Image, ImageResize } from "@ckeditor/ckeditor5-image";
 import "../../../app/editor.css";
 type ContentEditorType = {
   onChangeContent?: (newContent: string) => any;
@@ -12,9 +14,8 @@ export default function ContentEditor({
   onChangeContent,
   startValue,
 }: ContentEditorType) {
-  const API_URL = "http://localhost:3000/api/upload";
-  const UPLOAD_ENDPOINT = "https://upload.roojam.ir/";
-
+  const API_URL = "https://upload.roojam.ir";
+  const toolBarRef = createRef<HTMLDivElement>();
   function uploadAdapter(loader: any) {
     return {
       upload: () => {
@@ -53,19 +54,53 @@ export default function ContentEditor({
 
   return (
     <>
+      <div ref={toolBarRef} />
+
       <CKEditor
         config={{
           extraPlugins: [uploadPlugin],
           language: "fa",
+          // @ts-ignore
+          fontFamily: {
+            options: ["shabnam", "yekan", "tunisia", "IranSans"],
+          },
+          fontSize: {
+            options: [
+              "default",
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              25,
+              30,
+              35,
+              40,
+            ],
+          },
         }}
-        editor={ClassicEditor}
+        //@ts-ignore
+        editor={DecoupledEditor}
         onReady={(editor) => {
           // You can store the "editor" and use when it is needed.
+          console.log("ready");
+          if (toolBarRef.current) {
+            toolBarRef.current.innerHTML = "";
+            //@ts-ignore
+
+            toolBarRef.current.appendChild(editor.ui.view.toolbar.element);
+          }
           console.log("Editor is ready to use!", editor);
         }}
         data={startValue}
         onChange={(event, editor) => {
-          // do something when editor's content changed
+          //@ts-ignore
           const data = editor.getData();
           if (onChangeContent) {
             onChangeContent(data);

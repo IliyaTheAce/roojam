@@ -1,9 +1,8 @@
-"use server";
-
 import { connectToDataBase } from "@/lib/mongoose";
 import PagesData from "@/lib/Models/PagesData";
+import { NextResponse } from "next/server";
 
-export default async function BusinessData() {
+export async function GET() {
   await connectToDataBase();
   try {
     const title = await PagesData.findOne({
@@ -15,13 +14,13 @@ export default async function BusinessData() {
       title: "BusinessPageText",
     });
     const cards = await PagesData.find({ category: "BusinessFeatures" });
-    return {
+    return NextResponse.json({
       result: true,
       title,
       text,
       cards,
-    };
+    });
   } catch (error: any) {
-    return { result: false, forceMessage: error.message };
+    return NextResponse.json({ result: false, forceMessage: error.message });
   }
 }

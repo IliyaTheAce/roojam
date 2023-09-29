@@ -1,11 +1,11 @@
-import {
-  GetTodaysMessage,
-  GetUnreadMessages,
-} from "@/lib/Actions/Messages.action";
+import { BaseUrl } from "@/Constants/Config";
 
 export default async function Dashboard() {
-  const todaysMessages = await GetTodaysMessage();
-  const unreadMessage = await GetUnreadMessages();
+  const todays = await fetch(new URL(`/api/message/todays`, BaseUrl));
+  const todaysMessages = await todays.json();
+  const unread = await fetch(new URL(`/api/message/unread`, BaseUrl));
+  const unreadMessage = unread.json();
+
   return (
     <section className="flex flex-wrap gap-5">
       <div className="bg-white  border-[1px] rounded-lg flex flex-row">

@@ -12,6 +12,15 @@
   font-family: tunisia;
   src: url("/assets/Mj_Tunisia Bd_0.ttf");
 }
+@font-face {
+  font-family: IranSans;
+  src: url("/assets/fonts/Sans/sans.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/Sans/sans.woff") format("woff"),
+    url("/assets/fonts/Sans/sans.ttf") format("truetype"),
+    url("/assets/fonts/Sans/sans.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 @import "~@flaticon/flaticon-uicons/css/all/all";
 
 @tailwind base;

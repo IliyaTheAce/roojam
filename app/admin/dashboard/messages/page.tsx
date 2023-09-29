@@ -6,10 +6,11 @@ interface dataInterface {
   forceMessage?: string;
 }
 
-import FetchMessages, { DeleteMessage } from "@/lib/Actions/Messages.action";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { BaseUrl } from "@/Constants/Config";
+import { revalidatePath } from "next/cache";
 export default function Dashboard() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -20,7 +21,10 @@ export default function Dashboard() {
     if (page) pageNumber = parseInt(page);
   }
   const FetchData = async () => {
-    setData(await FetchMessages(pageNumber));
+    const messages = await (
+      await fetch(new URL(`/api/message?page=${pageNumber}`, BaseUrl))
+    ).json();
+    setData(messages);
   };
 
   useEffect(() => {
@@ -68,7 +72,7 @@ export default function Dashboard() {
                   ) => {
                     return (
                       <tr
-                      key={item._id}
+                        key={item._id}
                         className={`${
                           index % 2 === 0 && "bg-gray-100"
                         } border-b-[1px] `}
@@ -98,7 +102,14 @@ export default function Dashboard() {
                           <button
                             className="p-2 bg-red-300 rounded-lg"
                             onClick={async () => {
-                              await DeleteMessage(item._id);
+                              const unreadMessage = await fetch(
+                                new URL(
+                                  `/api/messages?type=${item._id}`,
+                                  BaseUrl
+                                ),
+                                { method: "Delete" }
+                              );
+                              revalidatePath('/admin/dashboard/messages')
                             }}
                           >
                             <i className="fi fi-rr-trash flex items-center"></i>

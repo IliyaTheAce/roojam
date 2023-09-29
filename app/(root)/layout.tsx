@@ -1,6 +1,5 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import styles from "@/app/style";
 import Navbar from "@/Components/Shared/Navbar";
 import Footer from "@/Components/Shared/Footer";
@@ -8,9 +7,12 @@ import Footer from "@/Components/Shared/Footer";
 export const metadata: Metadata = {
   title: "رویش جوانه امید مهر - رجام",
   description:
-    "امنیت با هزینه پایین و بهترین بهره وری ، تجارت مدرن ، سیستم های ارتباطی پرسرعت و مدرن و تبلیغات هوشمند و هدفمند.",
+    "رجام، یک شرکت پیشرو در ارائه خدمات تکنولوژی اطلاعات و ارتباطات (ITC) با تمرکز بر روی خدمات اینترنت، امنیت شبکه، تولید محتوا، ساخت تیزر و تبلیغات، برنامه نویسی وب و بسیاری از خدمات مهم دیگر است. ما تلاش میکنیم تا با بهره‌گیری از تکنولوژی‌های پیشرفته، نیازهای فعلی و آینده‌ی شما را در زمینه‌های مختلف تکنولوژی اطلاعات مرتفع کنیم",
   keywords:
-    "دوربین مخفی ، دوربین مدار بسته ، سیستم های هوشمند ، ساخت محتوا ، فیلم ، سریال ، تبلیغات در فضای مجازی ، رپورتاژ ، آگهی ،فیلم تبلیغاتی ، تبلیغات ، برگزاری سمینار، برگزاری رویداد ، برگزاری رویداد فرهنگی هنری ، شبکه ، ساخت شبکه های داخلی ، پیشگامان ، اینترنت ، نت پرسرعت ، فیبر نوری ، نمایندگی انحصاری پیشگامان استان البرز",
+      "رجام، اینترنت، دیتاسنتر، امنیت شبکه، فیبر نوری، VoIP، تولید محتوا، تیزر، تبلیغات، برنامه نویسی سایت" ,
+  alternates: {
+    canonical: `https://roojam.ir`,
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir={"rtl"}>
       <body>
-        <main className={"bg-primary w-full bg-primary"}>
+        <main className={"bg-primary w-full"}>
           <div className={`${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`${styles.boxWidth}`}>
               <Navbar />

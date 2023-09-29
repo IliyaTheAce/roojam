@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
+import Image from "next/image";
 export default function UploadModal({
   onUpload,
   setModalActive,
@@ -19,7 +20,7 @@ export default function UploadModal({
           console.log(e.currentTarget.file.files[0]);
           formData.append("file", e.currentTarget.file.files[0]);
           e.preventDefault();
-          const result = await fetch("/api/upload", {
+          const result = await fetch("https://upload.roojam.ir", {
             method: "post",
             body: formData,
           });
@@ -45,9 +46,7 @@ export default function UploadModal({
             hidden
             ref={fileRef}
             onChange={(e) => {
-              if(
-                !e.target.files
-              ) return;
+              if (!e.target.files) return;
               var file = e.target.files[0];
               let reader = new FileReader();
               reader.readAsDataURL(file);
@@ -78,9 +77,15 @@ export default function UploadModal({
             </button>
           )}
         </div>
-        {file&&
-        <img src={file} alt="preview" className="max-w-[300px] h-auto" />
-}
+        {file && (
+          <Image
+            width={300}
+            height={400}
+            src={file}
+            alt="preview"
+            className="max-w-[300px] h-auto"
+          />
+        )}
       </form>
     </div>
   );

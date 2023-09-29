@@ -1,9 +1,8 @@
 "use client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import ContactUsInfoData from "@/lib/Actions/ContactUsInfoData";
 import CompanyInfoCard from "@/Components/ContactUsPage/CompanyInfoCard";
 import { useEffect, useState } from "react";
-import SendMessageActions from "@/lib/Actions/SendMessage.actions";
+import { BaseUrl } from "@/Constants/Config";
 
 export default function ContactUs() {
   const errorsClassnames = "mb-4 text-red-500";
@@ -14,8 +13,10 @@ export default function ContactUs() {
     fetchData();
   }, []);
   const fetchData = async () => {
-    const { data } = await ContactUsInfoData();
-    // @ts-ignore
+    const response = await fetch(
+      new URL("/api/content/ContactUsPageInfo", BaseUrl)
+    );
+    const { data } = await response.json();
     setCompanyInfo(data);
   };
 
@@ -47,50 +48,50 @@ export default function ContactUs() {
           onSubmit={async (values, { setSubmitting }) => {
             setSubmited(true);
             const { subject, message, email, phoneNumber, composer } = values;
-            const response = await SendMessageActions(
-              subject,
-              message,
-              phoneNumber,
-              composer,
-              email
-            );
-
-            setResult(response.result);
-
+            const response = await fetch(new URL("/api/message/new", BaseUrl), {
+              method: "Post",
+              body: JSON.stringify({
+                composer: composer,
+                phone: phoneNumber,
+                email,
+                content: message,
+                title: subject,
+              }),
+            });
+            const data = await response.json();
+            setResult(data.result);
             setSubmitting(false);
           }}
           validate={(values) => {
-            const errors = {};
+            const errors: {
+              email?: string;
+              phoneNumber?: string;
+              composer?: string;
+              subject?: string;
+              message?: string;
+            } = {};
             if (!values.email) {
-              // @ts-ignore
               errors.email = "لطفا ایمیل را وارد کنید.";
             } else if (
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
-              // @ts-ignore
               errors.email = "لطفا ایمیل را به درستی وارد کنید";
             }
 
             if (!values.phoneNumber) {
-              // @ts-ignore
               errors.phoneNumber = "لطفا شماره تلفن را وارد کنید.";
             } else if (!/^09\d{9}$/i.test(values.phoneNumber)) {
-              // @ts-ignore
               errors.phoneNumber = "لطفا شماره تلفن را به درستی وارد کنید";
             }
-            // @ts-ignore
             if (!values.composer) {
-              // @ts-ignore
               errors.composer = "لطفا نام و نام خاوادگی را وارد کنید";
             }
 
             if (!values.subject) {
-              // @ts-ignore
               errors.subject = "لطفا موضوع پیام را وارد کنید";
             }
 
             if (!values.message) {
-              // @ts-ignore
               errors.message = "لطفا پیام را وارد کنید";
             }
             return errors;

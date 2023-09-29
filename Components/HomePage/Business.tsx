@@ -3,6 +3,7 @@ import Button from "../Shared/Button";
 import { features } from "@/Constants";
 import BusinessData from "@/lib/Actions/BusinessData";
 import Image from "next/image";
+import { BaseUrl } from "@/Constants/Config";
 
 const FeatureCard = ({
   imgUrl,
@@ -49,7 +50,8 @@ const FeatureCard = ({
 );
 
 const Business = async () => {
-  const data = await BusinessData();
+  const response = await fetch(new URL("/api/content/business-data", BaseUrl));
+  const data = await response.json();
   return (
     <section id={"features"} className={layout.section}>
       <div className={`${layout.sectionInfo} rightside`}>
@@ -60,12 +62,14 @@ const Business = async () => {
         >
           {data.title && data.title.content}
         </h2>
-        <p className={`${styles.paragraph} mt-5`}>{data.text && data.text.content}</p>
+        <p className={`${styles.paragraph} mt-5`}>
+          {data.text && data.text.content}
+        </p>
         <Button styles={"mt-10"} />
       </div>
       <div className={`${layout.sectionImg} flex-col leftside`}>
         {data.cards &&
-          data.cards.map((feature, index) => (
+          data.cards.map((feature:{_id:string , title:string , content:string ,imgUrl:string}, index:number) => (
             <div key={feature._id}>
               <FeatureCard
                 key={feature._id}

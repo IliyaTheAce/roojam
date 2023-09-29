@@ -1,9 +1,6 @@
 "use client";
 import ContentEditor from "@/Components/Dashboard/ContentEdit/ContentEditor";
 import UploadModal from "@/Components/Dashboard/Shared/UploadModal";
-import ContentCreationData, {
-  ContentCreationDataEdit,
-} from "@/lib/Actions/ContentCreation.action";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 export type videoTypes = videoType[];
@@ -66,7 +63,7 @@ export default function ContentProductionEdit() {
       Content: content,
       Videos: videos,
     };
-    const res = await fetch("/api/content/content-production", {
+    await fetch("/api/content/content-production", {
       method: "POST",
       body: JSON.stringify(data),
     });
@@ -115,7 +112,7 @@ export default function ContentProductionEdit() {
             {videos &&
               videos.map((item, index) => {
                 return (
-                  <tr>
+                  <tr key={'video-item-' + index}>
                     <td>{index + 1}</td>
                     <td>
                       <input

@@ -1,10 +1,10 @@
 import styles from "@/app/style";
 import ServiceCard from "./ServiceCard";
-import ServicesData from "@/lib/Actions/ServicesData.actions";
+import { BaseUrl } from "@/Constants/Config";
 
 const Services = async () => {
-  const data = await ServicesData();
-  const services = data.data;
+  const response = await fetch(new URL("/api/content/Home", BaseUrl));
+  const { services } = await response.json();
   return (
     <section
       id={"services"}
@@ -38,16 +38,23 @@ const Services = async () => {
         }
       >
         {services &&
-          services.map((item) => (
-            <div key={item.id}>
-              <ServiceCard
-                key={item.id}
-                content={item.content}
-                title={item.title}
-                imgUrl={item.imgUrl}
-              />
-            </div>
-          ))}
+          services.map(
+            (item: {
+              id: string;
+              content: string;
+              title: string;
+              imgUrl: string;
+            }) => (
+              <div key={item.id}>
+                <ServiceCard
+                  key={item.id}
+                  content={item.content}
+                  title={item.title}
+                  imgUrl={item.imgUrl}
+                />
+              </div>
+            )
+          )}
       </div>
     </section>
   );

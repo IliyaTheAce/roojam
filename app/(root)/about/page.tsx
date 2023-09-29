@@ -1,10 +1,10 @@
-import AboutPageData from "@/lib/Actions/AboutData";
+import { BaseUrl } from "@/Constants/Config";
 import styles from "@/app/style";
 import Image from "next/image";
 
 export default async function AboutUs() {
-  const data = await AboutPageData();
-  const about = data.data;
+  const response = await fetch(new URL("/api/content/About", BaseUrl));
+  const { about } = await response.json();
   return (
     <div className={"justify-center flex my-24"}>
       <div
@@ -23,7 +23,7 @@ export default async function AboutUs() {
         }
       >
         {about &&
-          about.map((item) => {
+          about.map((item: { imgUrl: string; content: string }) => {
             return (
               <>
                 <Image

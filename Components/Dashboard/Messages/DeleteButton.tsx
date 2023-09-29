@@ -1,15 +1,22 @@
-'use client'
+"use client";
 
-import { DeleteMessage, SetAsRead } from "@/lib/Actions/Messages.action";
-import { useRouter } from "next/navigation";
+import { BaseUrl } from "@/Constants/Config";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
-export default function DeleteButton({uid} : {uid:string}) {
-    const router = useRouter();
- return   <button className={`bg-red-400 px-3 py-2 rounded-lg text-white`}
-    onClick={() => {
-        DeleteMessage(uid);
-router.push('/admin/dashboard/messages');
-    }}>
-  حذف
+export default function DeleteButton({ uid }: { uid: string }) {
+  return (
+    <button
+      className={`bg-red-400 px-3 py-2 rounded-lg text-white`}
+      onClick={async () => {
+        const response = await fetch(
+          new URL(`/api/messages?uid=${uid}`, BaseUrl),
+          { method: "Delete" }
+        );
+        revalidatePath("/admin/dashboard/messages");
+      }}
+    >
+      حذف
     </button>
+  );
 }

@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^39.0.1",
+    "@ckeditor/ckeditor5-build-decoupled-document": "^39.0.2",
     "@ckeditor/ckeditor5-font": "^39.0.2",
+    "@ckeditor/ckeditor5-image": "^39.0.2",
     "@ckeditor/ckeditor5-react": "^6.1.0",
     "@flaticon/flaticon-uicons": "^2.4.0",
     "@types/bcryptjs": "^2.4.2",

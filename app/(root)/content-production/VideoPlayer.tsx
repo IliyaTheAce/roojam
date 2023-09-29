@@ -50,6 +50,7 @@ export default function VideoPlayer({
             onClick={() => {
               setSelectedVideo(index);
             }}
+            key={'video-'+index}
             className={`${
               index === selectedVideo ? "bg-black" : "hover:bg-black"
             } p-2 flex flex-col items-center gap-2 keen-slider__slide`}
@@ -67,6 +68,7 @@ export default function VideoPlayer({
                 e.stopPropagation() || instanceRef.current?.prev()
               }
               disabled={currentSlide === 0}
+
             />
 
             <Arrow
