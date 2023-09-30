@@ -34,6 +34,6 @@ yarn-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-
+.next.zip
 roojam.zip
 /Upload
