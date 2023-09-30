@@ -4,7 +4,7 @@ import { BaseUrl } from "@/Constants/Config";
 
 const Services = async () => {
   const response = await fetch(new URL("/api/content/Home", BaseUrl));
-  const { services } = await response.json();
+  const { services } = (await response.json()).data;
   return (
     <section
       id={"services"}

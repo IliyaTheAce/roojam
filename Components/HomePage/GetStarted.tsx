@@ -1,16 +1,11 @@
 "use client";
 import styles from "@/app/style";
-import { router } from "next/client";
 import Image from "next/image";
+import Link from "next/link";
 
 const GetStarted = () => {
-  const nav = router;
   return (
-    <button
-      onClick={async () => {
-        await nav.push("./ContactUs");
-      }}
-    >
+    <Link href={"./ContactUs"}>
       <div
         className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-green-gradient p-[2px] cursor-pointer transition-all`}
       >
@@ -42,7 +37,7 @@ const GetStarted = () => {
           </p>
         </div>
       </div>
-    </button>
+    </Link>
   );
 };
 

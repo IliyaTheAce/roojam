@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react"; // import from 'keen-slider/react.es' for to get an ES module
@@ -11,7 +11,13 @@ export default function VideoPlayer({
 }) {
   const [selectedVideo, setSelectedVideo] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const [domLloaded, setDomLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
     {
       initial: 0,
@@ -36,53 +42,53 @@ export default function VideoPlayer({
       // add plugins here
     ]
   );
-  return (
-    <section className="flex flex-col items-center justify-center ">
-      <ReactPlayer
-        url={videos[selectedVideo].url}
-        controls
-        width={"100%"}
-        height={"auto"}
-      />
-      <div ref={sliderRef} className="w-full mt-10 keen-slider">
-        {videos.map((video, index) => (
-          <button
-            onClick={() => {
-              setSelectedVideo(index);
-            }}
-            key={'video-'+index}
-            className={`${
-              index === selectedVideo ? "bg-black" : "hover:bg-black"
-            } p-2 flex flex-col items-center gap-2 keen-slider__slide`}
-          >
-            <div className="w-full h-auto aspect-video bg-white flex justify-center items-center text-black">
-              Video Preview
-            </div>
-            <p className="line-clamp-1">{video.title}</p>
-          </button>
-        ))}
-        {loaded && instanceRef.current && (
-          <>
-            <Arrow
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
-              disabled={currentSlide === 0}
+  if (domLloaded)
+    return (
+      <section className="flex flex-col items-center justify-center ">
+        <ReactPlayer
+          url={videos[selectedVideo].url}
+          controls
+          width={"100%"}
+          height={"auto"}
+        />
+        <div ref={sliderRef} className="w-full mt-10 keen-slider">
+          {videos.map((video, index) => (
+            <button
+              onClick={() => {
+                setSelectedVideo(index);
+              }}
+              key={"video-" + index}
+              className={`${
+                index === selectedVideo ? "bg-black" : "hover:bg-black"
+              } p-2 flex flex-col items-center gap-2 keen-slider__slide`}
+            >
+              <div className="w-full h-auto aspect-video bg-white flex justify-center items-center text-black">
+                Video Preview
+              </div>
+              <p className="line-clamp-1">{video.title}</p>
+            </button>
+          ))}
+          {loaded && instanceRef.current && (
+            <>
+              <Arrow
+                onClick={(e: any) =>
+                  e.stopPropagation() || instanceRef.current?.prev()
+                }
+                disabled={currentSlide === 0}
+              />
 
-            />
-
-            <Arrow
-              left
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
-              disabled={currentSlide === videos.length - 1}
-            />
-          </>
-        )}
-      </div>
-    </section>
-  );
+              <Arrow
+                left
+                onClick={(e: any) =>
+                  e.stopPropagation() || instanceRef.current?.next()
+                }
+                disabled={currentSlide === videos.length - 1}
+              />
+            </>
+          )}
+        </div>
+      </section>
+    );
 }
 
 function Arrow(props: {

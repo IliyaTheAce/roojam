@@ -1,0 +1,1 @@
+console.log(new URL('./api/as'))

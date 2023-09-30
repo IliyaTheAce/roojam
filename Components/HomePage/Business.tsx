@@ -50,7 +50,8 @@ const FeatureCard = ({
 
 const Business = async () => {
   const response = await fetch(new URL("/api/content/business-data", BaseUrl));
-  const data = await response.json();
+
+  const data = (await response.json());
   return (
     <section id={"features"} className={layout.section}>
       <div className={`${layout.sectionInfo} rightside`}>

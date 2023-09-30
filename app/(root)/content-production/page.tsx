@@ -8,17 +8,13 @@ export const metadata: Metadata = {
 };
 export default async function ContentProduction() {
   const response = await fetch(
-    new URL("/api/content/content-production", BaseUrl),
-    { cache: "default" }
+    new URL("/api/content/content-production", BaseUrl)
   );
   const data = await response.json();
   return (
     <main className="flex flex-col gap-6 justify-center w-full max-w-[1270px] mx-auto text-white px-4">
       <VideoPlayer videos={data.data.Videos} />
-      <section
-        className=""
-        dangerouslySetInnerHTML={{ __html: data.data.Content }}
-      />
+      <section dangerouslySetInnerHTML={{ __html: data.data.Content }} />
     </main>
   );
 }

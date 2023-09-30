@@ -1,15 +1,23 @@
 "use client";
-import ContentEditor from "@/Components/Dashboard/ContentEdit/ContentEditor";
 import UploadModal from "@/Components/Dashboard/Shared/UploadModal";
+import { revalidatePath } from "next/cache";
+import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+
+// import { useRouter } from "next/navigation";
 export type videoTypes = videoType[];
 type videoType = {
   title: string;
   url: string;
 };
+
 export default function ContentProductionEdit() {
-  const router = useRouter();
+  const ContentEditor = dynamic(
+    () => import("@/Components/Dashboard/ContentEdit/ContentEditor"),
+    {
+      ssr: false,
+    }
+  );
   const [videos, setVideos] = useState<videoTypes>([]);
   const [content, setContent] = useState("");
   const [startingValue, setStartingValue] = useState("");
@@ -21,7 +29,10 @@ export default function ContentProductionEdit() {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch("/api/content/content-production");
+    const response = await fetch("/api/content/content-production", {
+      cache: "no-store",
+      next: { revalidate: 0 },
+    });
     const result = await response.json();
     if (result.result) {
       setContent(result.data.Content);
@@ -32,9 +43,7 @@ export default function ContentProductionEdit() {
       setLoading(false);
     }
   };
-
   const handleChange = (newContent: string) => {
-    console.log("handled");
     setContent(newContent);
   };
 
@@ -66,9 +75,10 @@ export default function ContentProductionEdit() {
     await fetch("/api/content/content-production", {
       method: "POST",
       body: JSON.stringify(data),
+      cache: "no-store",
     });
     setLoading(false);
-    router.refresh();
+    revalidatePath("/admin/dashboard/ContentEdit/content-production");
   };
   return (
     <main className="relative flex flex-col gap-5 p-5 rounded-lg bg-white">
@@ -112,7 +122,7 @@ export default function ContentProductionEdit() {
             {videos &&
               videos.map((item, index) => {
                 return (
-                  <tr key={'video-item-' + index}>
+                  <tr key={"video-item-" + index}>
                     <td>{index + 1}</td>
                     <td>
                       <input
@@ -132,7 +142,9 @@ export default function ContentProductionEdit() {
                         حذف
                       </button>
                       <button
-                        onClick={() => window.open(item.url)}
+                        onClick={() => {
+                          if (window) window.open(item.url);
+                        }}
                         className="px-3 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-300 transition-colors "
                       >
                         نمایش

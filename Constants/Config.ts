@@ -1,1 +1,1 @@
-export const BaseUrl = "http://localhost:3000";
+export const BaseUrl = process.env.BASE_URL;

@@ -3,9 +3,16 @@ import styles from "@/app/style";
 import { robot } from "@/public/assets";
 import GetStarted from "@/Components/HomePage/GetStarted";
 import Image from "next/image";
-import { RevealWrapper } from "next-reveal";
+// import { RevealWrapper } from "next-reveal";
+import dynamic from "next/dynamic";
 
 const Hero = () => {
+  const RevealWrapper = dynamic(
+    () => import("next-reveal").then((mod) => mod.RevealWrapper),
+    {
+      ssr: false,
+    }
+  );
   return (
     <section
       id={"home"}
